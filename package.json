@@ -1,0 +1,86 @@
+{
+  "name": "react-hook-action",
+  "version": "0.0.0",
+  "description": "A lightweight React hook for managing asynchronous actions with loading and error states, powered by Zustand.",
+  "keywords": [
+    "react",
+    "hooks",
+    "actions",
+    "loading-state",
+    "state-management",
+    "typescript",
+    "zustand",
+    "async"
+  ],
+  "homepage": "https://github.com/shahradelahi/react-hook-action",
+  "repository": "github:shahradelahi/react-hook-action",
+  "license": "MIT",
+  "author": "Shahrad Elahi <shahrad@litehex.com> (https://github.com/shahradelahi)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**",
+    "!**/*.d.cts"
+  ],
+  "scripts": {
+    "bench": "vitest bench --run",
+    "build": "tsup",
+    "ci:publish": "changeset publish",
+    "clean": "git clean -dfx \"**/node_modules/**\" dist .tsbuildinfo",
+    "dev": "pnpm build --watch",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "pnpm typecheck && eslint .",
+    "lint:fix": "eslint --fix .",
+    "prepublishOnly": "pnpm lint && pnpm test && pnpm format:check",
+    "test": "vitest --run",
+    "typecheck": "tsc --skipLibCheck --noEmit"
+  },
+  "prettier": "@shahrad/prettier-config",
+  "dependencies": {
+    "p-safe": "^1.1.0",
+    "zustand": "^5.0.11"
+  },
+  "devDependencies": {
+    "@edge-runtime/vm": "^5.0.0",
+    "@shahrad/eslint-config": "^1.0.0",
+    "@shahrad/prettier-config": "^1.1.0",
+    "@shahrad/tsconfig": "^1.2.0",
+    "@sindresorhus/tsconfig": "^7.0.0",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.20.1",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "globals": "^15.14.0",
+    "jsdom": "^28.0.0",
+    "prettier": "^3.5.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
+    "vitest": "^4.0.18"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+    "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+    "zustand": "^5.0"
+  },
+  "packageManager": "pnpm@10.30.1+sha512.3590e550d5384caa39bd5c7c739f72270234b2f6059e13018f975c313b1eb9fefcc09714048765d4d9efe961382c312e624572c0420762bdc5d5940cdf9be73a",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
